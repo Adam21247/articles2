@@ -10,7 +10,7 @@ class ArticleController extends Controller
     public function list(): View {
         $articles = Article::all();
 
-        return view('articles')->with('arts' ,$articles);
+        return view('articles.articles')->with('arts' ,$articles);
     }
 }
 
