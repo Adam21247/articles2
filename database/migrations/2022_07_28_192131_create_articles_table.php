@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('title');
+            $table->text('summary'); // streszczenie, ma przyjmowac wiecej  niz 255 znakwó dlatego jest tekst
+            $table->text('content');
+
+            $table->timestamps(); // tworzy sam dwie kolumny created_at i updated_at
         });
     }
 
