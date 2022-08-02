@@ -10,24 +10,68 @@
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <style>
-    </style>
+
 
     <style>
-        body {
+        tbody {
             font-family: 'Nunito', sans-serif;
+            cursor: pointer;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+
+th{
+    background-color: #333333;
+    color: #ffffff;
+}
+        th, td{
+            padding: .8rem;
+            font-size: 1rem;
+        }
+tbody{
+    background-color: #eeeeee;
+    color: black;
+}
+        table{
+            font-family: sans-serif;
+            border-collapse: collapse;
         }
     </style>
 </head>
-<body>
-<h2>Panel Admina - artykuły</h2>
-<ul>
+
+<h2 align="center">Panel Admina - artykuły</h2>
+<table>
+<thead align="center" style="display: table-header-group">
+<tr>
+    <th>ID:</th>
+    <th>Title:</th>
+    <th>Summary:</th>
+    <th>Content:</th>
+</tr>
+</thead>
+    <tbody>
+
     @foreach ($arts as $art)
-            <a href="/articles/{{ $art->id }}"/>
-            <li> {{ $art->title }}</li>
-            <li> {{ $art->summary }}</li>
-            <li> {{ $art->content }}</li>
+
+
+
+        <tr>
+            <td><a href="/articles/{{ $art->id }}"/>{{$art->id}}</td>
+            <td><a href="/articles/{{ $art->title }}"/>{{$art->title}}</td>
+            <td><a href="/articles/{{ $art->summary }}"/>{{$art->summary}}</td>
+            <td><a href="/articles/{{ $art->content }}"/>{{$art->content}}</td>
+        </tr>
+
     @endforeach
-</ul>
-</body>
+
+</tbody>
+</table>
+
 </html>
+
+

@@ -12,6 +12,10 @@ class ArticleController extends Controller
 
         return view('articles.articles')->with('arts' ,$articles);
     }
+
+    public function show() {
+
+    }
 }
 
 
