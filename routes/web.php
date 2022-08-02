@@ -22,3 +22,5 @@ Route::get(
     '/articles',
     [ArticleController::class, 'list']
 )->name('articles.list');
+
+Route::get('/articles/{id}',[ArticleController::class, 'show']);
