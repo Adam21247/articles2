@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Contracts\View\View;
 
+
 class ArticleController extends Controller
 {
 
@@ -21,6 +22,8 @@ class ArticleController extends Controller
 //          dd($article);
         return view('articles.show')->with('article',$article);
     }
+
+
 }
 
 

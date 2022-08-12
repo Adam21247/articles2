@@ -9,11 +9,11 @@
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <body>
-<h1>hello World</h1>
+
 
 
     <td>{{$article->id}}</td>
-
+<h1>Wyświetla, które to jest ID: {{$article->id}}</h1>
 
 </body>
     <!-- Styles --><?php

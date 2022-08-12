@@ -24,3 +24,4 @@ Route::get(
 )->name('articles.list');
 
 Route::get('/articles/{id}',[ArticleController::class, 'show']);
+
