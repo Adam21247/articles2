@@ -12,6 +12,12 @@ class ArticleApiController extends Controller
         $articles = Article::all();
         return response()->json($articles->toArray());
     }
+
+    public function show($id)
+    {
+        $articles = Article::find($id);
+        return response()->json($articles->toArray());
+    }
 }
 
 
