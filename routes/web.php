@@ -22,3 +22,6 @@ Route::get(
     '/articles',
     [ArticleController::class, 'list']
 )->name('articles.list');
+//
+//Route::view('add', 'addmember');
+
