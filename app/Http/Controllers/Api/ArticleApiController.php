@@ -18,6 +18,17 @@ class ArticleApiController extends Controller
         $articles = Article::find($id);
         return response()->json($articles->toArray());
     }
+
+    public function delete($id){
+        $articles = Article::find($id);
+        $articles->delete();
+        if($articles){
+            return ["articles" => "record has been deleted"];
+        }
+        else{
+            return ["articles" => "record has not been deleted"];
+        }
+    }
 }
 
 

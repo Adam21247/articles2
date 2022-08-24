@@ -21,3 +21,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('articles', [ArticleApiController::class, 'list']);
 
 Route::get('articles/{id}',[ArticleApiController::class, 'show']);
+
+Route::delete('articles/delete/{id}', [ArticleApiController::class, 'delete']);
