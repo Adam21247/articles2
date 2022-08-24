@@ -12,6 +12,11 @@ class ArticleController extends Controller
 
         return view('articles.articles')->with('arts' ,$articles);
     }
+
+    public function add(): View{
+    return view('articles.addmember');
+    }
 }
+
 
 

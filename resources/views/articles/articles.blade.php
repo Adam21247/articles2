@@ -37,7 +37,7 @@
 </head>
 <body>
 <h2 style="text-align: center">Panel Admina - artykuły</h2>
-<button>Dodaj użytkownika do DB</button>
+<a href="{{'/articles/add'}}"><button>Dodaj użytkownika do DB</button></a>
 {{--<ul>--}}
 {{--    @foreach ($arts as $art)--}}
 {{--            <a href="/articles/{{ $art->id }}"/>--}}

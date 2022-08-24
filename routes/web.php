@@ -25,3 +25,4 @@ Route::get(
 //
 //Route::view('add', 'addmember');
 
+Route::get('/articles/add',[ArticleController::class, 'add'])->name('articles.add');
