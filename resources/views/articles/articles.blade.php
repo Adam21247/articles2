@@ -52,10 +52,11 @@
         <a href="/articles"/>
     <tr>
 
-        <th>{{$art->id}}</th>
-        <th>{{$art->title}}</th>
-        <th>{{$art->summary}}</th>
-        <th>{{$art->content}}</th>
+        <td>{{$art->id}}</td>
+        <td>{{$art->title}}</td>
+        <td>{{$art->summary}}</td>
+        <td>{{$art->content}}</td>
+        <td><a href={{"update/".$art['id']}}>Update</a></td>
         @endforeach
     </tr>
 </table>

@@ -25,4 +25,11 @@ Route::get(
 //
 //Route::view('add', 'addmember');
 
-Route::get('/articles/add',[ArticleController::class, 'add'])->name('articles.add');
+Route::get('/articles/add',[ArticleController::class, 'add'])
+    ->name('articles.add');
+
+Route::post('store',[ArticleController::class,'addData'])->name('articles.create');
+
+
+Route::get('update/{id}',[ArticleController::class,'showUpdate']);
+Route::post('update',[ArticleController::class,'edited']);
