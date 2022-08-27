@@ -10,7 +10,7 @@ use Symfony\Component\Console\Input\Input;
 
 class ArticleController extends Controller
 {
-    public function list(): View {
+    public function index(): View {
         $articles = Article::all();
 
         return view('articles.articles')->with('arts' ,$articles);
@@ -20,7 +20,7 @@ class ArticleController extends Controller
     return view('articles.addmember');
     }
 
-    public function addData(Request $request){
+    public function store(Request $request){
 
         $articles=new Article();
         $articles->title=$request->title;
@@ -33,7 +33,7 @@ class ArticleController extends Controller
     }
 
 
-    public function showUpdate($id){
+    public function show($id){
         $articles= Article::find($id);
         return view('articles.update',['articles'=>$articles]);
     }
@@ -41,7 +41,7 @@ class ArticleController extends Controller
 //        return view ('articles.update');
 //}
 
-public function edited(Request $request){
+public function update(Request $request){
        $articles=Article::find($request->id);
        $articles->title=$request->title;
        $articles->summary=$request->summary;

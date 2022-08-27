@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 
 class ArticleApiController extends Controller
 {
-    public function list()
+    public function index()
     {
         $articles = Article::all();
         return response()->json($articles->toArray());
@@ -19,7 +19,7 @@ class ArticleApiController extends Controller
         return response()->json($articles->toArray());
     }
 
-    public function delete($id){
+    public function destroy($id){
         $articles = Article::find($id);
         $articles->delete();
         if($articles){

@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::get('articles', [ArticleApiController::class, 'list']);
+Route::get('articles', [ArticleApiController::class, 'index']);
 
 Route::get('articles/{id}',[ArticleApiController::class, 'show']);
 
-Route::delete('articles/delete/{id}', [ArticleApiController::class, 'delete']);
+Route::delete('articles/delete/{id}', [ArticleApiController::class, 'destroy']);

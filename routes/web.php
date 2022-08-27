@@ -20,16 +20,16 @@ Route::get('/', function () {
 
 Route::get(
     '/articles',
-    [ArticleController::class, 'list']
-)->name('articles.list');
+    [ArticleController::class, 'index']
+)->name('articles.index');
 //
 //Route::view('add', 'addmember');
 
 Route::get('/articles/add',[ArticleController::class, 'add'])
     ->name('articles.add');
 
-Route::post('store',[ArticleController::class,'addData'])->name('articles.create');
+Route::post('store',[ArticleController::class,'store'])->name('articles.create');
 
 
-Route::get('update/{id}',[ArticleController::class,'showUpdate']);
-Route::post('update',[ArticleController::class,'edited']);
+Route::get('update/{id}',[ArticleController::class,'show']);
+Route::post('update',[ArticleController::class,'update']);
