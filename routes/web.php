@@ -18,18 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get(
-    '/articles',
-    [ArticleController::class, 'index']
-)->name('articles.index');
-//
-//Route::view('add', 'addmember');
-
-Route::get('/articles/add',[ArticleController::class, 'add'])
-    ->name('articles.add');
-
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('/articles/add',[ArticleController::class, 'add'])->name('articles.add');
 Route::post('store',[ArticleController::class,'store'])->name('articles.create');
-
-
-Route::get('update/{id}',[ArticleController::class,'show']);
+Route::get('edit/{id}',[ArticleController::class,'show']);
 Route::post('update',[ArticleController::class,'update']);
+Route::get('delete/{id}', [ArticleController::class,'destroy']);
+

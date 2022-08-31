@@ -11,54 +11,46 @@
 
     <!-- Styles -->
     <style>
-    </style>
-
-    <style>
         body {
             font-family: 'Nunito', sans-serif;
         }
 
         button {
-             border: none;
-             color: white;
+            border: none;
+            color: white;
             background-color: #1a202c;
-             padding: 15px 32px;
-             text-align: center;
-             text-decoration: none;
-             display: inline-block;
-             font-size: 16px;
-             margin: 4px 2px;
-             cursor: pointer;
-         }
-
-
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
     </style>
 
 </head>
 <body>
 <h2 style="text-align: center">Panel Admina - artykuły</h2>
-<a href="{{'/articles/add'}}"><button>Dodaj użytkownika do DB</button></a>
-{{--<ul>--}}
-{{--    @foreach ($arts as $art)--}}
-{{--            <a href="/articles/{{ $art->id }}"/>--}}
-{{--            <li> {{ $art->title }}</li>--}}
-{{--            <li> {{ $art->summary }}</li>--}}
-{{--            <li> {{ $art->content }}</li>--}}
-{{--    @endforeach--}}
-{{--</ul>--}}
-
+<a href="{{'/articles/add'}}">
+    <button>Dodaj użytkownika do DB</button>
+</a>
 <table border="1">
     @foreach($arts as $art)
         <a href="/articles"/>
-    <tr>
+        <tr>
 
-        <td>{{$art->id}}</td>
-        <td>{{$art->title}}</td>
-        <td>{{$art->summary}}</td>
-        <td>{{$art->content}}</td>
-        <td><a href={{"update/".$art['id']}}>Update</a></td>
-        @endforeach
-    </tr>
+            <td>{{$art->id}}</td>
+            <td>{{$art->title}}</td>
+            <td>{{$art->summary}}</td>
+            <td>{{$art->content}}</td>
+            <td><a href={{"edit/".$art['id']}}>Update</a></td>
+            @csrf
+            @method("GET")
+            <td><a href={{"delete/".$art['id']}}>Delete</a></td>
+
+    @endforeach
+        </tr>
 </table>
 </body>
 </html>

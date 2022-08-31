@@ -4,51 +4,68 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\DB;
-use Symfony\Component\Console\Input\Input;
+
 
 class ArticleController extends Controller
 {
-    public function index(): View {
+    public function index()
+    {
         $articles = Article::all();
 
-        return view('articles.articles')->with('arts' ,$articles);
+        return view('articles.articles')->with('arts', $articles);
     }
 
-    public function add(): View{
-    return view('articles.addmember');
+    public function add()
+    {
+        return view('articles.addmember');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
+        $input = $request->only('title','summary','content');
 
-        $articles=new Article();
-        $articles->title=$request->title;
-        $articles->summary=$request->summary;
-        $articles->content=$request->content;
-
-
+        $articles = new Article();
+        $articles->title = $input['title'];
+        $articles->summary = $input['summary'];
+        $articles->content = $input['content'];
         $articles->save();
+
         return redirect('articles');
     }
 
 
-    public function show($id){
-        $articles= Article::find($id);
-        return view('articles.update',['articles'=>$articles]);
-    }
-//public function showUpdate(): View{
-//        return view ('articles.update');
-//}
+    public function show($id)
+    {
+        $articles = Article::find($id);
 
-public function update(Request $request){
-       $articles=Article::find($request->id);
-       $articles->title=$request->title;
-       $articles->summary=$request->summary;
-       $articles->content=$request->content;
+        return view('articles.update', ['articles' => $articles]);
+    }
+
+
+    public function update(Request $request)
+    {
+        $articles = Article::find($request->id);
+
+        $input = $request->only('title','summary','content');
+
+        $articles->title = $input['title'];
+        $articles->summary = $input['summary'];
+        $articles->content = $input['content'];
         $articles->save();
+
         return redirect('articles');
-}
+    }
+
+
+    public function destroy($id)
+    {
+        $articles = Article::find($id);
+        $articles->delete();
+
+        return redirect('articles');
+
+    }
+
 }
 
 
