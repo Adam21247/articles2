@@ -48,6 +48,7 @@
             @csrf
             @method("GET")
             <td><a href={{"delete/".$art['id']}}>Delete</a></td>
+            <td><a href={{"showarticle/".$art['id']}}>Show Article</a></td>
 
     @endforeach
         </tr>

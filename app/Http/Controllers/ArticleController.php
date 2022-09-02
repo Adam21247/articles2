@@ -66,6 +66,13 @@ class ArticleController extends Controller
 
     }
 
+    public function showArticle($id)
+    {
+
+        $articles = Article::find($id);
+        return view('articles.showarticle')->with('arts',$articles);
+    }
+
 }
 
 

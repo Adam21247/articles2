@@ -24,4 +24,7 @@ Route::post('store',[ArticleController::class,'store'])->name('articles.create')
 Route::get('edit/{id}',[ArticleController::class,'show']);
 Route::post('update',[ArticleController::class,'update']);
 Route::get('delete/{id}', [ArticleController::class,'destroy']);
+Route::get('showarticle/{id}',[ArticleController::class, 'showArticle']);
+
+
 
