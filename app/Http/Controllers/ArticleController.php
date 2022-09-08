@@ -22,7 +22,7 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        $input = $request->only('title','summary','content');
+        $input = $request->only('title', 'summary', 'content');
 
         $articles = new Article();
         $articles->title = $input['title'];
@@ -46,7 +46,7 @@ class ArticleController extends Controller
     {
         $articles = Article::find($request->id);
 
-        $input = $request->only('title','summary','content');
+        $input = $request->only('title', 'summary', 'content');
 
         $articles->title = $input['title'];
         $articles->summary = $input['summary'];
@@ -70,7 +70,7 @@ class ArticleController extends Controller
     {
 
         $articles = Article::find($id);
-        return view('articles.showarticle')->with('arts',$articles);
+        return view('articles.showarticle')->with('arts', $articles);
     }
 
 }

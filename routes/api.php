@@ -23,3 +23,5 @@ Route::get('articles', [ArticleApiController::class, 'index']);
 Route::get('articles/{id}',[ArticleApiController::class, 'show']);
 
 Route::delete('articles/delete/{id}', [ArticleApiController::class, 'destroy']);
+
+Route::post('articles/store',[ArticleApiController::class,'store']);

@@ -24,17 +24,19 @@
 
 <table border="1">
 
-        <a href="/showarticle"/>
-        <tr>
+    <a href="/showarticle"/>
+    <tr>
 
-            <td>{{$arts->id}}</td>
-            <td>{{$arts->title}}</td>
-            <td>{{$arts->summary}}</td>
-            <td>{{$arts->content}}</td>
+        <td>{{$arts->id}}</td>
+        <td>{{$arts->title}}</td>
+        <td>{{$arts->summary}}</td>
+        <td>{{$arts->content}}</td>
 
 
-        </tr>
+    </tr>
 </table>
+
+<button> <a href="{{"/articles"}}">Back</a></button>
 </body>
 </html>
 

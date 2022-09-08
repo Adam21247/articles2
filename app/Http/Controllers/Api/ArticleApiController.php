@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Article;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class ArticleApiController extends Controller
@@ -16,22 +17,39 @@ class ArticleApiController extends Controller
 
     public function show($id)
     {
-        $articles = Article::find($id);
+        $article = Article::find($id);
 
-        return response()->json($articles->toArray());
+        return response()->json($article->toArray());
     }
 
     public function destroy($id)
     {
-        $articles = Article::find($id);
-        $articles->delete();
+        $article = Article::find($id);
+        $article->delete();
 
-        if ($articles) {
-            return ["articles" => "record has been deleted"];
+        if ($article) {
+            return ["article" => "record has been deleted"];
         } else {
-            return ["articles" => "record has not been deleted"];
+            return ["article" => "record has not been deleted"];
         }
 
+    }
+
+    public function store(Request $request)
+    {
+
+        $input = $request->only('title', 'summary', 'content');
+
+
+        $article = new Article();
+
+        $article->title = $input['title'];
+        $article->summary = $input['summary'];
+        $article->content = $input['content'];
+
+        $article->save();
+
+        return response()->json(null, 204);
     }
 }
 
