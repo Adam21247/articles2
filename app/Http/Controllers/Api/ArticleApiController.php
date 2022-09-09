@@ -51,6 +51,22 @@ class ArticleApiController extends Controller
 
         return response()->json(null, 204);
     }
+
+    public function update(Request $request)
+    {
+
+        $article = Article::find($request->id);
+
+        $input = $request->only('title', 'summary', 'content');
+
+        $article->title = $input['title'];
+        $article->summary = $input['summary'];
+        $article->content = $input['content'];
+        $article->save();
+
+        return response()->json(['message' =>'Update successfully'], 204);
+
+    }
 }
 
 
