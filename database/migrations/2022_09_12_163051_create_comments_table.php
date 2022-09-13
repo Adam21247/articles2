@@ -12,13 +12,12 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('summary'); // streszczenie, ma przyjmowac wiecej  niz 255 znakwó dlatego jest tekst
-            $table->text('content');
-
-            $table->timestamps(); // tworzy sam dwie kolumny created_at i updated_at
+            $table->string('comments');
+            $table->unsignedBigInteger('articles_id');
+            $table->foreign('articles_id')->references('id')->on('articles')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('comments');
     }
 };

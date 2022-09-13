@@ -25,6 +25,7 @@
 <table border="1">
 
     <a href="/showarticle"/>
+    <button><a href="{{"/articles"}}">Back</a></button>
     <tr>
 
         <td>{{$arts->id}}</td>
@@ -36,7 +37,9 @@
     </tr>
 </table>
 
-<button> <a href="{{"/articles"}}">Back</a></button>
+<h1>Skomentuj artykuł</h1>
+<textarea name="comment" cols="50" rows="10">Proszę, wpisz tutaj jakiś komentarz...</textarea>
+<input type="submit" value="Wyślij formularz">
 </body>
 </html>
 

@@ -73,6 +73,11 @@ class ArticleController extends Controller
         return view('articles.showarticle')->with('arts', $articles);
     }
 
+    public function storeComment(Request $request){
+        $input = $request->only('comment');
+
+    }
+
 }
 
 
