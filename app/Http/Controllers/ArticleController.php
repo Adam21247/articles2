@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 
@@ -12,23 +13,23 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
 
-        return view('articles.articles')->with('arts', $articles);
+        return view('articles.index')->with('articles', $articles);
     }
 
     public function add()
     {
-        return view('articles.addmember');
+        return view('articles.add');
     }
 
     public function store(Request $request)
     {
         $input = $request->only('title', 'summary', 'content');
 
-        $articles = new Article();
-        $articles->title = $input['title'];
-        $articles->summary = $input['summary'];
-        $articles->content = $input['content'];
-        $articles->save();
+        $article = new Article();
+        $article->title = $input['title'];
+        $article->summary = $input['summary'];
+        $article->content = $input['content'];
+        $article->save();
 
         return redirect('articles');
     }
@@ -36,22 +37,29 @@ class ArticleController extends Controller
 
     public function show($id)
     {
-        $articles = Article::find($id);
+        $article = Article::find($id);
 
-        return view('articles.update', ['articles' => $articles]);
+        return view('articles.show', ['article' => $article]);
+    }
+
+    public function edit($id)
+    {
+        $article = Article::find($id);
+
+        return view('articles.edit', ['article' => $article]);
     }
 
 
     public function update(Request $request)
     {
-        $articles = Article::find($request->id);
+        $article = Article::find($request->id);
 
         $input = $request->only('title', 'summary', 'content');
 
-        $articles->title = $input['title'];
-        $articles->summary = $input['summary'];
-        $articles->content = $input['content'];
-        $articles->save();
+        $article->title = $input['title'];
+        $article->summary = $input['summary'];
+        $article->content = $input['content'];
+        $article->save();
 
         return redirect('articles');
     }
@@ -59,27 +67,35 @@ class ArticleController extends Controller
 
     public function destroy($id)
     {
-        $articles = Article::find($id);
-        $articles->delete();
+        $article = Article::find($id);
+        $article->delete();
 
         return redirect('articles');
 
     }
 
-    public function showArticle($id)
+    public function addComment(Request $request)
     {
 
-        $articles = Article::find($id);
-        return view('articles.showarticle')->with('arts', $articles);
+        if ($request->has('comment_content')) {
+            Comment::create(
+                ['comment_content' => $request->get('comment_content'),
+                    'article_id' => $request->get('id')
+                ]);
+        }
+
+        return redirect('show/{article_id}');
     }
 
-    public function storeComment(Request $request){
-        $input = $request->only('comment');
+    public function destroyComment($id){
 
+
+        $comment = Comment::find($id);
+        $comment->delete();
+
+        return redirect('articles.show');
     }
 
 }
-
-
 
 

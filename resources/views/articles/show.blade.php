@@ -21,25 +21,35 @@
 </head>
 <body>
 
-
+<form action="/add_comment" method="POST">
+    @csrf
 <table border="1">
-
     <a href="/showarticle"/>
     <button><a href="{{"/articles"}}">Back</a></button>
     <tr>
 
-        <td>{{$arts->id}}</td>
-        <td>{{$arts->title}}</td>
-        <td>{{$arts->summary}}</td>
-        <td>{{$arts->content}}</td>
-
+        <td>{{$article->id}}</td>
+        <td>{{$article->title}}</td>
+        <td>{{$article->summary}}</td>
+        <td>{{$article->content}}</td>
 
     </tr>
 </table>
+    @foreach($article->comments as $comment)
+        <ul>
+            <li><i>Data komentarza: {{$comment->created_at}}</i></li>
+            <li><b>Komentarz: {{$comment->comment_content}}</b></li>
+
+            <td><a href={{"delete/".$comment['id']}}>Delete</a></td>
+        </ul>
+    @endforeach
+
 
 <h1>Skomentuj artykuł</h1>
-<textarea name="comment" cols="50" rows="10">Proszę, wpisz tutaj jakiś komentarz...</textarea>
+    <input type="hidden" name="id" value="{{$article->id}}">
+<textarea name="comment_content" cols="50" rows="10">Proszę, wpisz tutaj jakiś komentarz...</textarea>
 <input type="submit" value="Wyślij formularz">
+</form>
 </body>
 </html>
 

@@ -33,22 +33,22 @@
 <body>
 <h2 style="text-align: center">Panel Admina - artykuły</h2>
 <a href="{{'/articles/add'}}">
-    <button>Dodaj użytkownika do DB</button>
+    <button>Dodaj Nowy Artykul</button>
 </a>
 <table border="1">
-    @foreach($arts as $art)
+    @foreach($articles as $article)
         <a href="/articles"/>
         <tr>
 
-            <td>{{$art->id}}</td>
-            <td>{{$art->title}}</td>
-            <td>{{$art->summary}}</td>
-            <td>{{$art->content}}</td>
-            <td><a href={{"edit/".$art['id']}}>Update</a></td>
+            <td>{{$article->id}}</td>
+            <td>{{$article->title}}</td>
+            <td>{{$article->summary}}</td>
+            <td>{{$article->content}}</td>
+            <td><a href={{"edit/".$article['id']}}>Edit</a></td>
             @csrf
             @method("GET")
-            <td><a href={{"delete/".$art['id']}}>Delete</a></td>
-            <td><a href={{"showarticle/".$art['id']}}>Show Article</a></td>
+            <td><a href={{"delete/".$article['id']}}>Delete</a></td>
+            <td><a href={{"show/".$article['id']}}>Show Article</a></td>
 
     @endforeach
         </tr>

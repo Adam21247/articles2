@@ -10,5 +10,5 @@
     <label>
         <input type="text" name="content" placeholder="Enter content">
     </label><br><br>
-    <button type="submit">Add Member</button>
+    <button type="submit">Add New Article</button>
 </form>
