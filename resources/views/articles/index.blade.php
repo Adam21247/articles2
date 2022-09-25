@@ -44,11 +44,13 @@
             <td>{{$article->title}}</td>
             <td>{{$article->summary}}</td>
             <td>{{$article->content}}</td>
-            <td><a href={{"edit/".$article['id']}}>Edit</a></td>
+            <td>{{$article->content}}</td>
+            <td><a href={{"articles/edit/".$article['id']}}>Edit</a></td>
+{{--            <td><i class="fa fa-pencil" aria-hidden="true"></i></td>--}}
             @csrf
             @method("GET")
-            <td><a href={{"delete/".$article['id']}}>Delete</a></td>
-            <td><a href={{"show/".$article['id']}}>Show Article</a></td>
+            <td><a href={{"articles/delete/".$article['id']}}>Delete</a></td>
+            <td><a href={{"articles/".$article['id']}}>Show Article</a></td>
 
     @endforeach
         </tr>

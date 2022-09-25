@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<form action="/add_comment" method="POST">
+<form action="{{route('comment.store')}}" method="POST">
     @csrf
 <table border="1">
     <a href="/showarticle"/>
@@ -35,12 +35,15 @@
 
     </tr>
 </table>
+
     @foreach($article->comments as $comment)
+
         <ul>
             <li><i>Data komentarza: {{$comment->created_at}}</i></li>
             <li><b>Komentarz: {{$comment->comment_content}}</b></li>
 
-            <td><a href={{"delete/".$comment['id']}}>Delete</a></td>
+            <td><a href={{ route('comment.delete', $comment['id']) }}>Delete</a></td>
+
         </ul>
     @endforeach
 

@@ -67,11 +67,9 @@ class ArticleController extends Controller
 
     public function destroy($id)
     {
-        $article = Article::find($id);
-        $article->delete();
+        Article::destroy($id);
 
         return redirect('articles');
-
     }
 
     public function addComment(Request $request)
@@ -84,16 +82,13 @@ class ArticleController extends Controller
                 ]);
         }
 
-        return redirect('show/{article_id}');
+        return back();
     }
 
-    public function destroyComment($id){
+    public function destroyComment($id) {
+        Comment::destroy($id);
 
-
-        $comment = Comment::find($id);
-        $comment->delete();
-
-        return redirect('articles.show');
+        return back();
     }
 
 }
