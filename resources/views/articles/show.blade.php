@@ -24,7 +24,7 @@
 <form action="{{route('comment.store')}}" method="POST">
     @csrf
 <table border="1">
-    <a href="/showarticle"/>
+    <a href={{"/articles"}}>
     <button><a href="{{"/articles"}}">Back</a></button>
     <tr>
 
@@ -39,8 +39,8 @@
     @foreach($article->comments as $comment)
 
         <ul>
-            <li><i>Data komentarza: {{$comment->created_at}}</i></li>
-            <li><b>Komentarz: {{$comment->comment_content}}</b></li>
+            <li><i>Add comment: {{$comment->created_at}}</i></li>
+            <li><b>Comment: {{$comment->comment_content}}</b></li>
 
             <td><a href={{ route('comment.delete', $comment['id']) }}>Delete</a></td>
 
@@ -48,10 +48,10 @@
     @endforeach
 
 
-<h1>Skomentuj artykuł</h1>
+<h1>Comment article</h1>
     <input type="hidden" name="id" value="{{$article->id}}">
-<textarea name="comment_content" cols="50" rows="10">Proszę, wpisz tutaj jakiś komentarz...</textarea>
-<input type="submit" value="Wyślij formularz">
+<textarea name="comment_content" cols="50" rows="10">Please, write here your comment...</textarea>
+<input type="submit" value="Send form">
 </form>
 </body>
 </html>

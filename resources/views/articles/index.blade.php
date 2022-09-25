@@ -31,13 +31,13 @@
 
 </head>
 <body>
-<h2 style="text-align: center">Panel Admina - artykuły</h2>
+<h2 style="text-align: center">Admin panel - articles</h2>
 <a href="{{'/articles/add'}}">
-    <button>Dodaj Nowy Artykul</button>
+    <button>Add new article</button>
 </a>
 <table border="1">
     @foreach($articles as $article)
-        <a href="/articles"/>
+        <a href="{{'/articles/'}}">
         <tr>
 
             <td>{{$article->id}}</td>
