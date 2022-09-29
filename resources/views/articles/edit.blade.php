@@ -1,4 +1,6 @@
 <h1>Update data</h1>
+<button><a href="{{"/articles"}}">Back</a></button>
+<p></p>
 <form action="{{route('articles.update')}}" method="POST">
     @csrf
     <input type="hidden" name="id" value="{{$article['id']}}">
