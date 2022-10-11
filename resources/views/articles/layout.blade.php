@@ -10,6 +10,8 @@
 {{--        @section('styles')--}}
     <link rel="stylesheet" type="text/css" href="{{ url('/css/add.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url('/css/edit.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/index.css') }}"/>
+
 {{--        @show--}}
 </head>
 <body>

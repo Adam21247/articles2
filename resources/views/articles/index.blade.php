@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('.articles.layout')
 
     <title>Articles List</title>
 
@@ -10,24 +6,7 @@
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
 
-        button {
-            border: none;
-            color: white;
-            background-color: #1a202c;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-    </style>
 
 </head>
 <body>
@@ -36,8 +15,23 @@
 <a href="{{'/articles/add'}}">
     <button>Add new article</button>
 </a>
-<table border="1">
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>SUMMARY</th>
+            <th>CONTENT</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+
+
     @foreach($articles as $article)
+
         <a href="{{'/articles/'}}">
         <tr>
 
@@ -45,7 +39,7 @@
             <td>{{$article->title}}</td>
             <td>{{$article->summary}}</td>
             <td>{{$article->content}}</td>
-            <td>{{$article->content}}</td>
+
             <td><a href={{"articles/edit/".$article['id']}}>Edit</a></td>
 {{--            <td><i class="fa fa-pencil" aria-hidden="true"></i></td>--}}
             @csrf
@@ -56,5 +50,6 @@
     @endforeach
         </tr>
 </table>
+
 </body>
-</html>
+
