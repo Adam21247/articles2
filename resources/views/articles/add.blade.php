@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+@extends('articles.layout')
 
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" type="text/css" href="{{ url('/css/add.css') }}"/>
-
-</head>
-
-
-<body>
+<div>
 
 <a href="{{"/articles"}}">
     <button> Back</button>
@@ -38,9 +27,8 @@
     </form>
 
 </div>
-</body>
+</div>
 
-</html>
 
 
 

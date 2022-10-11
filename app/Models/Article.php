@@ -18,8 +18,8 @@ class Article extends Model
         'content',
     ];
 
-    public function comments(){
-        return $this->hasMany(Comment::class);
+    public function comments() {
+        return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
     }
 
 }

@@ -1,6 +1,5 @@
-<head>
-    <link rel="stylesheet" type="text/css" href="{{ url('/css/edit.css') }}"/>
-</head>
+@extends('.articles.layout')
+
 <a href="{{"/articles"}}">
     <button> Back</button>
 </a>

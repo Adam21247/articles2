@@ -9,8 +9,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+//        $perPage = $request->query('perPage');
+//        dd($perPage);
         $articles = Article::all();
 
         return view('articles.index')->with('articles', $articles);
