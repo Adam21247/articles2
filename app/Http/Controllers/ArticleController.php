@@ -3,26 +3,100 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Contracts\View\View;
+use App\Models\Comment;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 
 class ArticleController extends Controller
 {
+    public function index(Request $request)
+    {
+        $perPage = $request->query('perPage');
+
+        $perPage !== null ? $perPage : 25;
 
 
-    public function list(): View {
-        $articles = Article::all();
 
-        return view('articles.articles')->with('arts' ,$articles);
+        $articles = Article::paginate($perPage);
+
+        return view('articles.index')->with('articles', $articles);
     }
 
-    public function show($id) {
-//          article::find($id);
-          $article = Article::find($id); //to jest obiekt
-//          dd($article);
-        return view('articles.show')->with('article',$article);
+    public function add()
+    {
+        return view('articles.add');
     }
 
+    public function store(Request $request)
+    {
+        $input = $request->only('title', 'summary', 'content');
+
+        $article = new Article();
+        $article->title = $input['title'];
+        $article->summary = $input['summary'];
+        $article->content = $input['content'];
+        $article->save();
+
+        return redirect('articles');
+    }
+
+
+    public function show($id)
+    {
+        $article = Article::find($id);
+
+        return view('articles.show', ['article' => $article]);
+    }
+
+    public function edit($id)
+    {
+        $article = Article::find($id);
+
+        return view('articles.edit', ['article' => $article]);
+    }
+
+
+    public function update(Request $request)
+    {
+        $article = Article::find($request->id);
+
+        $input = $request->only('title', 'summary', 'content');
+
+        $article->title = $input['title'];
+        $article->summary = $input['summary'];
+        $article->content = $input['content'];
+        $article->save();
+
+        return redirect('articles');
+    }
+
+
+    public function destroy($id)
+    {
+        Article::destroy($id);
+
+        return redirect('articles');
+    }
+
+    public function addComment(Request $request)
+    {
+
+        if ($request->has('comment_content')) {
+            Comment::create(
+                ['comment_content' => $request->get('comment_content'),
+                    'article_id' => $request->get('id')
+                ]);
+        }
+
+        return back();
+    }
+
+    public function destroyComment($id) {
+        Comment::destroy($id);
+
+        return back();
+    }
 
 }
 
