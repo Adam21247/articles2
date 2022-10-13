@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('.articles.layout')
+
 
     <title>Articles List</title>
 
@@ -10,22 +7,27 @@
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
 
 
-    </style>
 
-</head>
 <body>
+<a href="{{"/articles"}}"><button>Back</button></a>
 
 <form action="{{route('comment.store')}}" method="POST">
     @csrf
-<table border="1">
-    <a href={{"/articles"}}>
-    <button><a href="{{"/articles"}}">Back</a></button>
+<table>
+
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>SUMMARY</th>
+            <th>CONTENT</th>
+
+        </tr>
+        </thead>
+
     <tr>
 
         <td>{{$article->id}}</td>
@@ -36,23 +38,27 @@
     </tr>
 </table>
 
+    <h3>Comment article</h3>
+    <input type="hidden" name="id" value="{{$article->id}}">
+    <textarea name="comment_content" cols="50" rows="10">Please, write here your comment...</textarea>
+    <input type="submit" value="Send comment">
+
+
     @foreach($article->comments as $comment)
+        <div>
 
         <ul>
-            <li><i>Add comment: {{$comment->created_at}}</i></li>
-            <li><b>Comment: {{$comment->comment_content}}</b></li>
 
-            <td><a href={{ route('comment.delete', $comment['id']) }}>Delete</a></td>
+            <li>Comment: {{$comment->comment_content}}</li>
+            <li>Comment added: {{$comment->created_at}}</li>
+            <li><a href={{ route('comment.delete', $comment['id']) }}>Delete</a></li>
 
         </ul>
+        </div>
     @endforeach
 
 
-<h1>Comment article</h1>
-    <input type="hidden" name="id" value="{{$article->id}}">
-<textarea name="comment_content" cols="50" rows="10">Please, write here your comment...</textarea>
-<input type="submit" value="Send form">
 </form>
 </body>
-</html>
+
 

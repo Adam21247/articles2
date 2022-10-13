@@ -11,9 +11,10 @@
 </head>
 <body>
 <h2 style="text-align: center">Admin panel - articles</h2>
-{{--<a href="{{'/articles'}}?perPage=25">25</a>--}}
 <a href="{{'/articles/add'}}">
     <button>Add new article</button>
+    {{--<a href="{{'/articles'}}?perPage=25">25</a>--}}
+{{--    // drop down z selectem perPage--}}
 </a>
 
     <table>
@@ -49,7 +50,8 @@
 
     @endforeach
         </tr>
-</table>
 
+</table>
+{{$articles->links() }}
 </body>
 

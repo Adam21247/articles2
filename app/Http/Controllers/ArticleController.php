@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 
 class ArticleController extends Controller
 {
     public function index(Request $request)
     {
-//        $perPage = $request->query('perPage');
-//        dd($perPage);
-        $articles = Article::all();
+        $perPage = $request->query('perPage');
+
+        $perPage !== null ? $perPage : 25;
+
+
+
+        $articles = Article::paginate($perPage);
 
         return view('articles.index')->with('articles', $articles);
     }

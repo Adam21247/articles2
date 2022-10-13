@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/css/add.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url('/css/edit.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url('/css/index.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/show.css') }}"/>
 
 {{--        @show--}}
 </head>
