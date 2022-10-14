@@ -20,8 +20,12 @@ class ArticleController extends Controller
 
         $articles = Article::paginate($perPage);
 
+
+
+
         return view('articles.index')->with('articles', $articles);
     }
+
 
     public function add()
     {

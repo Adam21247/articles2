@@ -2,20 +2,34 @@
 
     <title>Articles List</title>
 
-    <!-- Fonts -->
+
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
+
 
 
 </head>
 <body>
 <h2 style="text-align: center">Admin panel - articles</h2>
+
 <a href="{{'/articles/add'}}">
     <button>Add new article</button>
-    {{--<a href="{{'/articles'}}?perPage=25">25</a>--}}
-{{--    // drop down z selectem perPage--}}
 </a>
+
+<div>
+<select name="sample" onchange="location=this.value">
+    <option value=""></option>
+    <option value="{{'/articles'}}?perPage=3">3</option>
+    <option value="{{'/articles'}}?perPage=5">5</option>
+    <option value="{{'/articles'}}?perPage=10">10</option>
+    <option value="{{'/articles'}}?perPage=25">25</option>
+    <option value="{{'/articles'}}?perPage=50">50</option>
+    <option value="{{'/articles'}}?perPage=100">100</option>
+</select>
+</div>
+
+
+
 
     <table>
         <thead>
@@ -42,7 +56,7 @@
             <td>{{$article->content}}</td>
 
             <td><a href={{"articles/edit/".$article['id']}}>Edit</a></td>
-{{--            <td><i class="fa fa-pencil" aria-hidden="true"></i></td>--}}
+
             @csrf
             @method("GET")
             <td><a href={{"articles/delete/".$article['id']}}>Delete</a></td>
