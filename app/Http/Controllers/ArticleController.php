@@ -16,14 +16,17 @@ class ArticleController extends Controller
 
         $perPage !== null ? $perPage : 25;
 
+        $sort = $request->query('sort');
 
 
-        $articles = Article::paginate($perPage);
+        $sort == 'asc' ? $sort : 'desc';
 
 
+        $articles = Article::orderBy('id', $sort)->paginate($perPage);
 
 
         return view('articles.index')->with('articles', $articles);
+
     }
 
 
@@ -40,6 +43,7 @@ class ArticleController extends Controller
         $article->title = $input['title'];
         $article->summary = $input['summary'];
         $article->content = $input['content'];
+        $article->created_at = $input['created_at'];
         $article->save();
 
         return redirect('articles');
@@ -70,6 +74,8 @@ class ArticleController extends Controller
         $article->title = $input['title'];
         $article->summary = $input['summary'];
         $article->content = $input['content'];
+
+
         $article->save();
 
         return redirect('articles');
@@ -96,7 +102,8 @@ class ArticleController extends Controller
         return back();
     }
 
-    public function destroyComment($id) {
+    public function destroyComment($id)
+    {
         Comment::destroy($id);
 
         return back();

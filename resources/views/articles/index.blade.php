@@ -6,18 +6,16 @@
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 
-
-
-</head>
 <body>
-<h2 style="text-align: center">Admin panel - articles</h2>
+
+<h2 style="text-align: center">@lang('articles.admin.panel.articles')</h2>
 
 <a href="{{'/articles/add'}}">
-    <button>Add new article</button>
+<button>@lang('common.add')</button>
 </a>
 
 <div>
-<select name="sample" onchange="location=this.value">
+<select name="perPage" onchange="location = this.value">
     <option value=""></option>
     <option value="{{'/articles'}}?perPage=3">3</option>
     <option value="{{'/articles'}}?perPage=5">5</option>
@@ -34,10 +32,17 @@
     <table>
         <thead>
         <tr>
-            <th>ID</th>
+            <th>ID
+                <select name="sort" onchange="location = this.value">
+                    <option value=""></option>
+                    <option value="{{'/articles'}}?sort=asc">Ascending</option>
+                    <option value="{{'/articles'}}?sort=desc">Descending</option>
+                </select>
+            </th>
             <th>TITLE</th>
             <th>SUMMARY</th>
             <th>CONTENT</th>
+            <th>CREATED AT</th>
             <th></th>
             <th></th>
             <th></th>
@@ -54,6 +59,7 @@
             <td>{{$article->title}}</td>
             <td>{{$article->summary}}</td>
             <td>{{$article->content}}</td>
+            <td>{{$article->created_at}}</td>
 
             <td><a href={{"articles/edit/".$article['id']}}>Edit</a></td>
 
