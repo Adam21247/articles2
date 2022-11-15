@@ -17,7 +17,7 @@
 <div>
 <select name="perPage" onchange="location = this.value">
     <option value=""></option>
-    <option value="{{'/articles'}}?perPage=3">3</option>
+    <option value="{{'/articles'}}?perPage=3&sort=asc">3</option>
     <option value="{{'/articles'}}?perPage=5">5</option>
     <option value="{{'/articles'}}?perPage=10">10</option>
     <option value="{{'/articles'}}?perPage=25">25</option>
@@ -27,7 +27,10 @@
 </div>
 
 
-
+{{--perPage czyli ilość na stronę--}}
+{{--page numer strony na której jestesmy--}}
+{{--sort rosnaco lub malejaco--}}
+{{--sortBy po jakim polu sortujemy--}}
 
     <table>
         <thead>
@@ -35,7 +38,7 @@
             <th>ID
                 <select name="sort" onchange="location = this.value">
                     <option value=""></option>
-                    <option value="{{'/articles'}}?sort=asc">Ascending</option>
+                    <option value="{{'/articles'}}?sort=asc&perPage=">Ascending</option>
                     <option value="{{'/articles'}}?sort=desc">Descending</option>
                 </select>
             </th>
