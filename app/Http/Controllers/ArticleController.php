@@ -15,8 +15,14 @@ class ArticleController extends Controller
         $perPage = $request->query('perPage');
         $perPage !== null ? $perPage = $perPage : $perPage = 25;
 
+
         $sort = $request->query('sort');
         $sort !== null ? $sort = $sort : $sort = 'asc';
+
+
+
+
+
 
 
         $articles = Article::orderBy('id', $sort)->paginate($perPage);

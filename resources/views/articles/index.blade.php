@@ -17,20 +17,16 @@
 <div>
 <select name="perPage" onchange="location = this.value">
     <option value=""></option>
-    <option value="{{'/articles'}}?perPage=3&sort=asc">3</option>
-    <option value="{{'/articles'}}?perPage=5">5</option>
-    <option value="{{'/articles'}}?perPage=10">10</option>
-    <option value="{{'/articles'}}?perPage=25">25</option>
-    <option value="{{'/articles'}}?perPage=50">50</option>
-    <option value="{{'/articles'}}?perPage=100">100</option>
+    <option value="{{'/articles'}}?perPage=3&sort={{request('sort')}}">3</option>
+    <option value="{{'/articles'}}?perPage=5&sort={{request('sort')}}">5</option>
+    <option value="{{'/articles'}}?perPage=10&sort={{request('sort')}}">10</option>
+    <option value="{{'/articles'}}?perPage=25&sort={{request('sort')}}">25</option>
+    <option value="{{'/articles'}}?perPage=50&sort={{request('sort')}}">50</option>
+    <option value="{{'/articles'}}?perPage=100&sort={{request('sort')}}">100</option>
 </select>
 </div>
 
 
-{{--perPage czyli ilość na stronę--}}
-{{--page numer strony na której jestesmy--}}
-{{--sort rosnaco lub malejaco--}}
-{{--sortBy po jakim polu sortujemy--}}
 
     <table>
         <thead>
@@ -38,8 +34,8 @@
             <th>ID
                 <select name="sort" onchange="location = this.value">
                     <option value=""></option>
-                    <option value="{{'/articles'}}?sort=asc&perPage=">Ascending</option>
-                    <option value="{{'/articles'}}?sort=desc">Descending</option>
+                    <option value="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}">Ascending</option>
+                    <option value="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}">Descending</option>
                 </select>
             </th>
             <th>TITLE</th>
@@ -75,6 +71,7 @@
         </tr>
 
 </table>
-{{$articles->links() }}
+
+{{ $articles->appends(request()->query())->links() }}
 </body>
 
