@@ -1,6 +1,6 @@
 @extends('.articles.layout')
 
-    <title>Articles List</title>
+    <title>@lang('Articles List')</title>
 
 
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,14 +34,14 @@
             <th>ID
                 <select name="sort" onchange="location = this.value">
                     <option value=""></option>
-                    <option value="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}">Ascending</option>
-                    <option value="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}">Descending</option>
+                    <option value="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}">@lang('Ascending')</option>
+                    <option value="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}">@lang('Descending')</option>
                 </select>
             </th>
-            <th>TITLE</th>
-            <th>SUMMARY</th>
-            <th>CONTENT</th>
-            <th>CREATED AT</th>
+            <th>@lang('TITLE')</th>
+            <th>@lang('SUMMARY')</th>
+            <th>@lang('CONTENT')</th>
+            <th>@lang('CREATED AT')</th>
             <th></th>
             <th></th>
             <th></th>
@@ -60,12 +60,12 @@
             <td>{{$article->content}}</td>
             <td>{{$article->created_at}}</td>
 
-            <td><a href={{"articles/edit/".$article['id']}}>Edit</a></td>
+            <td><a href={{"articles/edit/".$article['id']}}>@lang('Edit')</a></td>
 
             @csrf
             @method("GET")
-            <td><a href={{"articles/delete/".$article['id']}}>Delete</a></td>
-            <td><a href={{"articles/".$article['id']}}>Show Article</a></td>
+            <td><a href={{"articles/delete/".$article['id']}}>@lang('Delete')</a></td>
+            <td><a href={{"articles/".$article['id']}}>@lang('Show Article')</a></td>
 
     @endforeach
         </tr>

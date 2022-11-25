@@ -1,7 +1,7 @@
 @extends('.articles.layout')
 
 
-    <title>Articles List</title>
+    <title>@lang('Articles List')</title>
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -20,10 +20,10 @@
 
         <thead>
         <tr>
-            <th>ID</th>
-            <th>TITLE</th>
-            <th>SUMMARY</th>
-            <th>CONTENT</th>
+            <th>@lang('ID')</th>
+            <th>@lang('TITLE')</th>
+            <th>@lang('SUMMARY')</th>
+            <th>@lang('CONTENT')</th>
 
         </tr>
         </thead>
@@ -38,9 +38,9 @@
     </tr>
 </table>
 
-    <h3>Comment article</h3>
+    <h3>@lang('Comment article')</h3>
     <input type="hidden" name="id" value="{{$article->id}}">
-    <textarea name="comment_content" cols="50" rows="10">Please, write here your comment...</textarea>
+    <textarea name="comment_content" cols="50" rows="10">@lang('Please, write here your comment...')</textarea>
     <input type="submit" value="Send comment">
 
 
@@ -49,9 +49,9 @@
 
         <ul>
 
-            <li>Comment: {{$comment->comment_content}}</li>
-            <li>Comment added: {{$comment->created_at}}</li>
-            <li><a href={{ route('comment.delete', $comment['id']) }}>Delete</a></li>
+            <li>@lang('Comment:') {{$comment->comment_content}}</li>
+            <li>@lang('Comment added:') {{$comment->created_at}}</li>
+            <li><a href={{ route('comment.delete', $comment['id']) }}>@lang('Delete')</a></li>
 
         </ul>
         </div>

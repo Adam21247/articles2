@@ -15,13 +15,13 @@
         @csrf
 
 
-        <input type="text" name="title" placeholder="Enter title">
+        <input type="text" name="title" placeholder=@lang('Enter_title')>
 
 
-        <textarea name="summary" placeholder="Enter summary"></textarea>
+        <textarea name="summary" placeholder=@lang('Enter_summary')></textarea>
 
 
-        <textarea name="content" placeholder="Enter content"></textarea>
+        <textarea name="content" placeholder=@lang('Enter_content')></textarea>
 
         <button type="submit">@lang('Add New Article')</button>
     </form>
