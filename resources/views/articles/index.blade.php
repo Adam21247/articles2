@@ -36,11 +36,11 @@
 
 
             @if(request('sort') === 'desc')
-                <a href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}">@lang('common.id')<i
-                        class="fa-solid fa-circle-chevron-down"></i></a>
+                <a class="header" href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}">@lang('common.id')<i
+                        class="fa-solid fa-circle-chevron-down fa-color"></i></a>
             @else
-                <a href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}">@lang('common.id')<i
-                        class="fa-solid fa-circle-chevron-up"></i></a>
+                <a class="header"  href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}">@lang('common.id')<i
+                        class="fa-solid fa-circle-chevron-up fa-color"></i></a>
             @endif
 
         </th>
