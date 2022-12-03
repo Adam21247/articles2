@@ -20,10 +20,10 @@
 
         <thead>
         <tr>
-            <th>@lang('ID')</th>
-            <th>@lang('TITLE')</th>
-            <th>@lang('SUMMARY')</th>
-            <th>@lang('CONTENT')</th>
+            <th>@lang('common.id')</th>
+            <th>@lang('common.title-article')</th>
+            <th>@lang('common.summary-article')</th>
+            <th>@lang('common.content-article')</th>
 
         </tr>
         </thead>
@@ -38,9 +38,9 @@
     </tr>
 </table>
 
-    <h3>@lang('Comment article')</h3>
+    <h3>@lang('comment.comment-article')</h3>
     <input type="hidden" name="id" value="{{$article->id}}">
-    <textarea name="comment_content" cols="50" rows="10">@lang('Please, write here your comment...')</textarea>
+    <textarea name="comment_content" cols="50" rows="10">@lang('comment.write.comment')</textarea>
     <input type="submit" value="Send comment">
 
 
@@ -49,9 +49,9 @@
 
         <ul>
 
-            <li>@lang('Comment:') {{$comment->comment_content}}</li>
-            <li>@lang('Comment added:') {{$comment->created_at}}</li>
-            <li><a href={{ route('comment.delete', $comment['id']) }}>@lang('Delete')</a></li>
+            <li>@lang('comment.comment') {{$comment->comment_content}}</li>
+            <li>@lang('comment.comment.add') {{$comment->created_at}}</li>
+            <li><a href={{ route('comment.delete', $comment['id']) }}>@lang('common.delete')</a></li>
 
         </ul>
         </div>

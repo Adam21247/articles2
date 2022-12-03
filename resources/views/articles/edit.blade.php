@@ -1,12 +1,12 @@
 @extends('.articles.layout')
 
 <a href="{{"/articles"}}">
-    <button> @lang('Back')</button>
+    <button> @lang('common.back')</button>
 </a>
 
 
 <div class="editMember-box">
-    <h1>@lang('Update data')</h1>
+    <h1>@lang('edit.update-data')</h1>
 
     <form action="{{route('articles.update')}}" method="POST">
         @csrf
@@ -14,7 +14,7 @@
         <input type="text" name="title" value="{{$article['title']}}"><br>
         <textarea type="text" name="summary">{{$article['summary']}} </textarea>
         <textarea type="text" name="content">{{$article['content']}} </textarea>
-        <button type="submit">@lang('Update')</button>
+        <button type="submit">@lang('edit.update')</button>
     </form>
 </div>
 
