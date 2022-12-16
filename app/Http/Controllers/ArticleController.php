@@ -19,17 +19,14 @@ class ArticleController extends Controller
         $sort = $request->query('sort');
         $sort !== null ? $sort = $sort : $sort = 'asc';
 
+        $sortBy = $request->query('sortBy');
+        $sortBy !== null ? $sortBy = $sortBy : $sortBy = 'id';
 
-
-
-
-
-
-        $articles = Article::orderBy('id', $sort)->paginate($perPage);
+        $articles = Article::orderBy($sortBy, $sort)
+            ->paginate($perPage);
 
 
         return view('articles.index')->with('articles', $articles);
-
     }
 
 

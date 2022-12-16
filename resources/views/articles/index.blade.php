@@ -36,18 +36,57 @@
 
 
             @if(request('sort') === 'desc')
-                <a class="header" href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}">@lang('common.id')<i
+                <a class="header" href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}&sortBy=id">@lang('common.id')<i
                         class="fa-solid fa-circle-chevron-down fa-color"></i></a>
             @else
-                <a class="header"  href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}">@lang('common.id')<i
+                <a class="header" href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}&sortBy=id">@lang('common.id')<i
                         class="fa-solid fa-circle-chevron-up fa-color"></i></a>
             @endif
 
         </th>
-        <th>@lang('common.title-article')</th>
-        <th>@lang('common.summary-article')</th>
-        <th>@lang('common.content-article')</th>
-        <th>@lang('articles.created_at-article')</th>
+        <th>
+            @if(request('sort') === 'desc')
+                <a class="header"
+                   href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}&sortBy=title"> @lang('common.title-article')<i
+                        class="fa-solid fa-circle-chevron-down fa-color"></i></a>
+            @else
+                <a class="header"
+                   href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}&sortBy=title"> @lang('common.title-article')<i
+                        class="fa-solid fa-circle-chevron-up fa-color"></i></a>
+            @endif
+        </th>
+        <th>
+            @if(request('sort') === 'desc')
+                <a class="header"
+                   href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}&sortBy=summary">@lang('common.summary-article')
+                    <i class="fa-solid fa-circle-chevron-down fa-color"></i></a>
+            @else
+                <a class="header"
+                   href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}&sortBy=summary"> @lang('common.summary-article')<i
+                        class="fa-solid fa-circle-chevron-up fa-color"></i></a>
+            @endif
+        </th>
+        <th>
+            @if(request('sort') === 'desc')
+                <a class="header"
+                   href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}&sortBy=content">@lang('common.content-article')
+                    <i class="fa-solid fa-circle-chevron-down fa-color"></i></a>
+            @else
+                <a class="header"
+                   href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}&sortBy=content"> @lang('common.content-article')<i
+                        class="fa-solid fa-circle-chevron-up fa-color"></i></a>
+            @endif</th>
+        <th>
+            @if(request('sort') === 'desc')
+                <a class="header"
+                   href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}&sortBy=created_at">@lang('articles.created_at-article')
+                    <i class="fa-solid fa-circle-chevron-down fa-color"></i></a>
+            @else
+                <a class="header"
+                   href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}&sortBy=created_at"> @lang('articles.created_at-article')
+                    <i
+                        class="fa-solid fa-circle-chevron-up fa-color"></i></a>
+            @endif</th>
         <th></th>
         <th></th>
         <th></th>
