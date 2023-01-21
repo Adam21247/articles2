@@ -17,6 +17,7 @@
 
 <div>
 
+
     <select name="perPage" onchange="location = this.value">
         <option value=""></option>
         <option value="{{'/articles'}}?perPage=3&sort={{request('sort')}}">3</option>
@@ -119,4 +120,5 @@
 
 {{ $articles->appends(request()->query())->links() }}
 </body>
+
 

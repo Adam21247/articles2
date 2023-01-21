@@ -11,4 +11,5 @@ return [
     'summary-article' => 'SUMMARY',
     'content-article' => 'CONTENT',
 
+
 ];

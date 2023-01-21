@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,10 @@ Route::get('articles/delete/{id}', [ArticleController::class, 'destroy'])->name(
 Route::get('articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
 Route::post('articles/comment/store', [ArticleController::class, 'addComment'])->name('comment.store');
 Route::get('articles/comment//delete/{id}', [ArticleController::class, 'destroyComment'])->name('comment.delete');
+
+Route::get('/login', [LoginController::class, 'login']);
+Route::get('/registration', [RegistrationController::class, 'registration']);
+Route::post('/register-user',[RegistrationController::class, 'registerUser'])->name('register-user');
 
 
 

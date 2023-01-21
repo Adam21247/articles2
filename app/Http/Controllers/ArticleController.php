@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Laracasts\Flash\Flash;
 
 
 class ArticleController extends Controller
@@ -27,6 +28,7 @@ class ArticleController extends Controller
 
 
         return view('articles.index')->with('articles', $articles);
+
     }
 
 
@@ -108,6 +110,8 @@ class ArticleController extends Controller
 
         return back();
     }
+
+
 
 }
 

@@ -11,5 +11,6 @@ return [
     'summary-article' => 'STRESZCZENIE',
     'content-article' => 'ZAWARTOŚĆ',
 
+
 ];
 
