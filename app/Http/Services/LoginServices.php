@@ -3,17 +3,16 @@
 
 namespace App\Http\Services;
 
-
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
-class RegistrationService
+class LoginServices
 {
-
-    public function save(array $input)
+    public function load(array $input)
     {
         $user = new User();
-        $user->name = $input['name'];
+
         $user->email = $input['email'];
         $user->password = Hash::make($input['password']);
 

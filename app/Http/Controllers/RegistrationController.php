@@ -34,10 +34,7 @@ class RegistrationController extends Controller
 
         if ($res) {
             flash(trans('validation.confirm_registration'))->success();
-
-
         } else {
-
             flash(trans('validation.reject_registration'))->fail();
         }
     }
