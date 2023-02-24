@@ -22,7 +22,7 @@
         <tr>
             <th>@lang('common.id')</th>
             <th>@lang('common.title-article')</th>
-            <th>@lang('common.summary-article')</th>
+            <th>@lang('common.author-article')</th>
             <th>@lang('common.content-article')</th>
 
         </tr>
@@ -32,7 +32,7 @@
 
         <td>{{$article->id}}</td>
         <td>{{$article->title}}</td>
-        <td>{{$article->summary}}</td>
+        <td>{{$article->author}}</td>
         <td>{{$article->content}}</td>
 
     </tr>

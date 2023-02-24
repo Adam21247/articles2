@@ -12,7 +12,7 @@
         @csrf
         <input type="hidden" name="id" value="{{$article['id']}}">
         <input type="text" name="title" value="{{$article['title']}}"><br>
-        <textarea type="text" name="summary">{{$article['summary']}} </textarea>
+        <textarea type="text" name="author">{{$article['author']}} </textarea>
         <textarea type="text" name="content">{{$article['content']}} </textarea>
         <button type="submit">@lang('edit.update')</button>
     </form>

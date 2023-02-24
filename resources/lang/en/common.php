@@ -8,7 +8,7 @@ return [
     'back' => 'Back',
     'id' => 'ID',
     'title-article' => 'TITLE',
-    'summary-article' => 'SUMMARY',
+    'author-article' => 'AUTHOR',
     'content-article' => 'CONTENT',
 
 

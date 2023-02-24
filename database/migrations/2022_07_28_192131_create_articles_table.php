@@ -15,10 +15,10 @@ return new class extends Migration {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('summary'); // streszczenie, ma przyjmowac wiecej  niz 255 znakwó dlatego jest tekst
+            $table->text('author');
             $table->text('content');
 
-            $table->timestamps(); // tworzy sam dwie kolumny created_at i updated_at
+            $table->timestamps();
         });
     }
 

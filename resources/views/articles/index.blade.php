@@ -59,11 +59,11 @@
         <th>
             @if(request('sort') === 'desc')
                 <a class="header"
-                   href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}&sortBy=summary">@lang('common.summary-article')
+                   href="{{'/articles'}}?sort=asc&perPage={{request('perPage')}}&sortBy=author">@lang('common.author-article')
                     <i class="fa-solid fa-circle-chevron-down fa-color"></i></a>
             @else
                 <a class="header"
-                   href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}&sortBy=summary"> @lang('common.summary-article')<i
+                   href="{{'/articles'}}?sort=desc&perPage={{request('perPage')}}&sortBy=author"> @lang('common.author-article')<i
                         class="fa-solid fa-circle-chevron-up fa-color"></i></a>
             @endif
         </th>
@@ -102,7 +102,7 @@
 
                 <td>{{$article->id}}</td>
                 <td>{{$article->title}}</td>
-                <td>{{$article->summary}}</td>
+                <td>{{$article->author}}</td>
                 <td>{{$article->content}}</td>
                 <td>{{$article->created_at}}</td>
 

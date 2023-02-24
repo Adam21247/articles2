@@ -8,7 +8,7 @@ return [
     'back' => 'Cofnij',
     'id' => 'ID',
     'title-article' => 'TYTUŁ',
-    'summary-article' => 'STRESZCZENIE',
+    'author-article' => 'AUTOR',
     'content-article' => 'ZAWARTOŚĆ',
 
 

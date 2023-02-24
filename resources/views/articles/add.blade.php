@@ -18,7 +18,7 @@
         <input type="text" name="title" placeholder=@lang('add.enter-title')>
 
 
-        <textarea name="summary" placeholder=@lang('add.enter-summary')></textarea>
+        <textarea name="author" placeholder=@lang('add.enter-author')></textarea>
 
 
         <textarea name="content" placeholder=@lang('add.enter-content')></textarea>

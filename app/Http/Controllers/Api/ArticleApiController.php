@@ -38,13 +38,13 @@ class ArticleApiController extends Controller
     public function store(Request $request)
     {
 
-        $input = $request->only('title', 'summary', 'content');
+        $input = $request->only('title', 'author', 'content');
 
 
         $article = new Article();
 
         $article->title = $input['title'];
-        $article->summary = $input['summary'];
+        $article->author = $input['author'];
         $article->content = $input['content'];
 
         $article->save();
@@ -57,10 +57,10 @@ class ArticleApiController extends Controller
 
         $article = Article::find($request->id);
 
-        $input = $request->only('title', 'summary', 'content');
+        $input = $request->only('title', 'author', 'content');
 
         $article->title = $input['title'];
-        $article->summary = $input['summary'];
+        $article->author = $input['author'];
         $article->content = $input['content'];
         $article->save();
 
