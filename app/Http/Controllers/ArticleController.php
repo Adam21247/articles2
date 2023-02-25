@@ -17,21 +17,10 @@ class ArticleController extends Controller
         $perPage = $request->query('perPage');
         $perPage !== null ? $perPage = $perPage : $perPage = 25;
 
-        $sort = $request->query('sort');
-        $sort !== null ? $sort = $sort : $sort = 'asc';
-
-        $sortBy = $request->query('sortBy');
-        $sortBy !== null ? $sortBy = $sortBy : $sortBy = 'id';
-
-
-
-
-        $articles = Article::orderBy($sortBy, $sort)
-            ->paginate($perPage);
-
-
+        $articles = Article::paginate($perPage);
 
         return view('articles.index')->with('articles', $articles);
+
 
     }
 
@@ -43,11 +32,10 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        $input = $request->only('title', 'author', 'content');
+        $input = $request->only('title', 'content');
 
         $article = new Article();
         $article->title = $input['title'];
-        $article->author = $input['author'];
         $article->content = $input['content'];
 
         $article->save();
@@ -75,10 +63,9 @@ class ArticleController extends Controller
     {
         $article = Article::find($request->id);
 
-        $input = $request->only('title', 'author', 'content');
+        $input = $request->only('title', 'content');
 
         $article->title = $input['title'];
-        $article->author = $input['author'];
         $article->content = $input['content'];
 
 
@@ -88,12 +75,6 @@ class ArticleController extends Controller
     }
 
 
-    public function destroy($id)
-    {
-        Article::destroy($id);
-
-        return redirect('articles');
-    }
 
     public function addComment(Request $request)
     {

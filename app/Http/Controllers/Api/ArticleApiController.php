@@ -15,25 +15,8 @@ class ArticleApiController extends Controller
         return response()->json($articles->toArray());
     }
 
-    public function show($id)
-    {
-        $article = Article::find($id);
 
-        return response()->json($article->toArray());
-    }
 
-    public function destroy($id)
-    {
-        $article = Article::find($id);
-        $article->delete();
-
-        if ($article) {
-            return ["article" => "record has been deleted"];
-        } else {
-            return ["article" => "record has not been deleted"];
-        }
-
-    }
 
     public function store(Request $request)
     {

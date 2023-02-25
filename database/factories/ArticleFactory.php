@@ -19,7 +19,7 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => fake()->name(),
-            'author' => fake()->name(),
+
             'content' => fake()->text(),
         ];
     }
