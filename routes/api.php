@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ArticleApiController;
+use App\Http\Controllers\Api\AuthorApiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('articles', [ArticleApiController::class, 'index']);
 
+
+// 1.
 Route::get('articles/{id}',[ArticleApiController::class, 'show']);
 
+// 2a.
+Route::get('articles/author/{authorId}',[ArticleApiController::class, 'showByAuthor']);
 
+// 2b.
+//Route::get('authors/{id}', [AuthorApiController::class, 'show']);
 
-Route::delete('articles/delete/{id}', [ArticleApiController::class, 'destroy']);
+//3.
+Route::get('authors/top-3-last-week', [AuthorApiController::class, 'showTop3AuthorsOfLastWeek']);
 
-Route::post('articles/store',[ArticleApiController::class,'store']);
-
-Route::put('articles/{id}/update',[ArticleApiController::class,'update']);
 
 

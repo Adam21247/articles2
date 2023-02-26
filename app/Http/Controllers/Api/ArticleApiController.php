@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Article;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class ArticleApiController extends Controller
@@ -15,41 +14,24 @@ class ArticleApiController extends Controller
         return response()->json($articles->toArray());
     }
 
-
-
-
-    public function store(Request $request)
+    public function show($id)
     {
+        $article = Article::find($id);
+        $article->load('authors');
 
-        $input = $request->only('title', 'author', 'content');
-
-
-        $article = new Article();
-
-        $article->title = $input['title'];
-        $article->author = $input['author'];
-        $article->content = $input['content'];
-
-        $article->save();
-
-        return response()->json(null, 204);
+        return response()->json($article->toArray());
     }
 
-    public function update(Request $request)
+    // 2a
+    public function showByAuthor($authorId)
     {
+        // TODO: wyciagasz wszystkie artykuly pryzpisane do danegoa autora
 
-        $article = Article::find($request->id);
-
-        $input = $request->only('title', 'author', 'content');
-
-        $article->title = $input['title'];
-        $article->author = $input['author'];
-        $article->content = $input['content'];
-        $article->save();
-
-        return response()->json(['message' =>'Update successfully'], 204);
-
+        //$articles = TODO - tutaj musisz sobie poradzic;
+//        response()->json($articles->toArray());
     }
+
+
 }
 
 

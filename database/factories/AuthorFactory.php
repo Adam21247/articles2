@@ -4,8 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-
-class ArticleFactory extends Factory
+class AuthorFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,9 +14,7 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->name(),
-
-            'content' => fake()->text(),
+            'name' => fake()->firstName() .' '. fake()->lastName(),
         ];
     }
 
