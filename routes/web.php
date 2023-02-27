@@ -26,9 +26,8 @@ Route::post('articles/store', [ArticleController::class, 'store'])->name('articl
 Route::get('articles/edit/{id}', [ArticleController::class, 'edit'])->name('articles.edit');
 Route::post('articles/update', [ArticleController::class, 'update'])->name('articles.update');
 
-Route::get('articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
-Route::post('articles/comment/store', [ArticleController::class, 'addComment'])->name('comment.store');
-Route::get('articles/comment//delete/{id}', [ArticleController::class, 'destroyComment'])->name('comment.delete');
+
+
 
 
 

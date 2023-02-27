@@ -25,10 +25,13 @@ class ArticleApiController extends Controller
     // 2a
     public function showByAuthor($authorId)
     {
-        // TODO: wyciagasz wszystkie artykuly pryzpisane do danegoa autora
 
-        //$articles = TODO - tutaj musisz sobie poradzic;
-//        response()->json($articles->toArray());
+        // TODO: wyciagnąć wszystkie artykuly pryzpisane do danegoa autora
+
+        $articles = Article::find($authorId);
+
+        return response()->json($articles->toArray());
+
     }
 
 

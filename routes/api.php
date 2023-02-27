@@ -18,14 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('articles', [ArticleApiController::class, 'index']);
 
 
-// 1.
+
 Route::get('articles/{id}',[ArticleApiController::class, 'show']);
 
 // 2a.
 Route::get('articles/author/{authorId}',[ArticleApiController::class, 'showByAuthor']);
 
-// 2b.
-//Route::get('authors/{id}', [AuthorApiController::class, 'show']);
 
 //3.
 Route::get('authors/top-3-last-week', [AuthorApiController::class, 'showTop3AuthorsOfLastWeek']);

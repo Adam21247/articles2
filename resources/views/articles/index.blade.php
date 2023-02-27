@@ -14,36 +14,20 @@
 <a href="{{'/articles/add'}}">
     <button>@lang('common.add')</button>
 </a>
-
-
-
-
 <table>
     <thead>
     <tr>
         <th>
-
-
-
                 <a class="header">@lang('common.id')</a>
-
-
-
         </th>
         <th>
-
                 <a class="header"> @lang('common.title-article')   </a>
-
-
         </th>
 
         <th>
-
                 <a class="header">@lang('common.content-article') </a>
-
         </th>
         <th>
-
                 <a class="header">@lang('articles.created_at-article')</a>
 
             </th>
@@ -52,8 +36,6 @@
         <th></th>
     </tr>
     </thead>
-
-
     @foreach($articles as $article)
 
         <a href="{{'/articles/'}}">
@@ -65,10 +47,8 @@
                 <td>{{$article->created_at}}</td>
 
                 <td><a href={{"articles/edit/".$article['id']}}>@lang('common.edit')</a></td>
-
-                @csrf
-                @method("GET")
-                <td><a href={{"articles/".$article['id']}}>@lang('common.show-article')</a></td>
+                <td></td>
+                <td></td>
 
                 @endforeach
             </tr>

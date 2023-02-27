@@ -44,12 +44,7 @@ class ArticleController extends Controller
     }
 
 
-    public function show($id)
-    {
-        $article = Article::find($id);
 
-        return view('articles.show', ['article' => $article]);
-    }
 
     public function edit($id)
     {
@@ -76,25 +71,6 @@ class ArticleController extends Controller
 
 
 
-    public function addComment(Request $request)
-    {
-
-        if ($request->has('comment_content')) {
-            Comment::create(
-                ['comment_content' => $request->get('comment_content'),
-                    'article_id' => $request->get('id')
-                ]);
-        }
-
-        return back();
-    }
-
-    public function destroyComment($id)
-    {
-        Comment::destroy($id);
-
-        return back();
-    }
 
 
 
