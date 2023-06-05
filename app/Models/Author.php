@@ -11,4 +11,9 @@ class Author extends Model
 
     protected $hidden = ['updated_at', 'created_at', 'pivot'];
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class)->orderBy('created_at', 'desc');
+    }
+
 }

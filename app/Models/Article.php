@@ -20,10 +20,11 @@ class Article extends Model
 
 
 
-public function authors()
-{
-    return $this->belongsToMany(Author::class, 'article_author');
-}
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
+
 
 
 }

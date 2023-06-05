@@ -16,6 +16,10 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->unsignedBigInteger('author_id');
+
+            $table->foreign('author_id')->references('id')
+                ->on('authors')->onDelete('cascade');
 
             $table->timestamps();
         });

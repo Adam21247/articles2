@@ -14,10 +14,14 @@ class ArticleFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'title' => fake()->name(),
+        //pobrac zassedowanych juz autorow $authors
 
+
+        return [
+            'title' => fake()->sentence(1),
             'content' => fake()->text(),
+//            'author_id' => fake()->numberBetween(1,10), wtyjebac
+
         ];
     }
 
