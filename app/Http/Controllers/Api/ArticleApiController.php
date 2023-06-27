@@ -17,8 +17,7 @@ class ArticleApiController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
-        $article->load('authors');
-
+        $article->load('author');
         return response()->json($article->toArray());
     }
 
@@ -28,9 +27,12 @@ class ArticleApiController extends Controller
 
         // TODO: wyciagnąć wszystkie artykuly pryzpisane do danegoa autora
 
-        $articles = Article::find($authorId);
+//        $articles = Article::find($authorId);
+
+        $articles = Article::where('author_id', $authorId)->get(['title','content']);
 
         return response()->json($articles->toArray());
+
 
     }
 
