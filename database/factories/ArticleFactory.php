@@ -2,7 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Author;
+use Database\Seeders\AuthorSeeder;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 
 
 class ArticleFactory extends Factory
@@ -14,14 +17,11 @@ class ArticleFactory extends Factory
      */
     public function definition()
     {
-        //pobrac zassedowanych juz autorow $authors
-
 
         return [
             'title' => fake()->sentence(1),
             'content' => fake()->text(),
-//            'author_id' => fake()->numberBetween(1,10), wtyjebac
-
+            'author_id' => Author::all()->random()->id,
         ];
     }
 
