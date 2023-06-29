@@ -22,6 +22,7 @@ class ArticleFactory extends Factory
             'title' => fake()->sentence(1),
             'content' => fake()->text(),
             'author_id' => Author::all()->random()->id,
+            'created_at'=>fake()->dateTimeBetween('2023-06-01','now')
         ];
     }
 
