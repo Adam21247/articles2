@@ -9,10 +9,7 @@ Project installation
 
 ## WEB 
 1. http://172.21.0.3/articles
-2. http://172.21.0.3/articles/add
-3. http://172.21.0.3/articles/store
-4. http://172.21.0.3/articles/edit/{id}
-5. http://172.21.0.3/articles/update
+
 
 ## API Endpoints 
 
